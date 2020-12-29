@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/tinymce/tinymce.min.js"></script>
+    <script src="./node_modules/tinymce/jquery.tinymce.min.js"></script>
+    
+    <title>TinyMCE Test</title>
+</head>
+<body>
+    <h2>Tincy MCE EDITOR TEST</h2>
+    <div>
+        <textarea id="tiny"></textarea>
+    </div>
+    <script>
+        $('textarea#tiny').tinymce({  
+            height: 500,
+            menubar: false,
+            external_plugins: {
+                'mathjax': '../@dimakorotkov/tinymce-mathjax/plugin.min.js',
+            },
+            mathjax: {
+                lib: './node_modules/mathjax/es5/tex-mml-chtml.js', //required path to mathjax
+                //symbols: {start: '\\(', end: '\\)'}, //optional: mathjax symbols
+                //className: "math-tex", //optional: mathjax element class
+                //configUrl: '/your-path-to-plugin/@dimakorotkov/tinymce-mathjax/config.js' //optional: mathjax config js
+            },
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount',
+            ],
+            toolbar: 'mathjax | undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help'
+          });
+    </script>
+</body>
+</html>
